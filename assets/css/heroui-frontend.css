@@ -1,0 +1,1485 @@
+/* ==========================================================================
+   HeroUI v3 Frontend Stylesheet for cheQueo (چکیو)
+   Primary Color: #7851A9 (Royal Purple)
+   STRICT RULE: NO BORDERS (border: 0 !important)
+   Universal Box-Shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 2px 4px 0 #0000000a, 0 1px 2px 0 #0000000f, 0 0 1px 0 #0000000f
+   Container Width: 400px Mobile Gateway Frame
+   ========================================================================== */
+
+:root {
+    --chequeo-accent: #7851A9;
+    --chequeo-accent-hover: #633f8e;
+    --chequeo-accent-soft: rgba(120, 81, 169, 0.12);
+    --chequeo-accent-foreground: #ffffff;
+
+    --chequeo-surface: #ffffff;
+    --chequeo-surface-secondary: #f4f4f5;
+    --chequeo-surface-tertiary: #e4e4e7;
+    --chequeo-foreground: #18181b;
+    --chequeo-muted: #71717a;
+
+    --chequeo-success: #10b981;
+    --chequeo-success-soft: rgba(16, 185, 129, 0.12);
+    --chequeo-warning: #f59e0b;
+    --chequeo-warning-soft: rgba(245, 158, 11, 0.14);
+    --chequeo-danger: #ef4444;
+    --chequeo-danger-soft: rgba(239, 68, 68, 0.12);
+
+    --chequeo-radius-3xl: 28px;
+    --chequeo-radius-2xl: 20px;
+    --chequeo-radius-xl: 14px;
+    --chequeo-radius-lg: 10px;
+    --chequeo-radius-md: 8px;
+    --chequeo-field-radius: 12px;
+
+    /* Mandatory Universal Box-Shadow */
+    --chequeo-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 2px 4px 0 #0000000a, 0 1px 2px 0 #0000000f, 0 0 1px 0 #0000000f;
+    --chequeo-font: 'IRANYekanXFaNum', 'iranyekanx', system-ui, -apple-system, sans-serif;
+}
+
+/* ── Strict Zero-Border Global Override ── */
+.chequeo-portal-overlay,
+.chequeo-portal-overlay * {
+    box-sizing: border-box;
+    font-family: var(--chequeo-font) !important;
+    border: 0 !important;
+    outline: none !important;
+}
+
+/* ── Off-Canvas Full-Screen Atmospheric Portal ── */
+.chequeo-portal-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999999;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #0b0714;
+    background-image:
+        radial-gradient(at 0% 0%, rgba(120, 81, 169, 0.35) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(88, 28, 135, 0.3) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(147, 51, 234, 0.25) 0px, transparent 50%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 12px 40px 12px;
+    direction: rtl;
+    color: var(--chequeo-foreground);
+}
+
+/* ── Portal Top Bar ── */
+.chequeo-portal-topbar {
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px 14px 12px;
+    color: #ffffff;
+}
+
+.portal-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.portal-badge-shield {
+    background: rgba(120, 81, 169, 0.4);
+    color: #ede9fe;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.portal-title {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+}
+
+.portal-exit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.65);
+    background: rgba(255, 255, 255, 0.08);
+    padding: 4px 10px;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+
+.portal-exit-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.16);
+}
+
+/* ── 400px Centered Gateway Frame Container ── */
+.chequeo-wizard-frame {
+    width: 450px;
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: var(--chequeo-surface);
+    border-radius: min(32px, var(--chequeo-radius-3xl));
+    padding: 20px;
+    box-shadow: var(--chequeo-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    overflow: visible;
+}
+
+/* ── Wizard Header ── */
+.chequeo-wizard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.chequeo-nav-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--chequeo-surface-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--chequeo-foreground);
+    transition: background 0.15s ease;
+}
+
+.chequeo-nav-btn:hover {
+    background: var(--chequeo-surface-tertiary);
+}
+
+.chequeo-header-titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    gap: 6px;
+}
+
+.chequeo-step-name {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--chequeo-foreground);
+    margin: 0;
+}
+
+.chequeo-step-counter {
+    font-size: 11px;
+    color: var(--chequeo-muted);
+}
+
+.chequeo-timer-pill {
+    background: var(--chequeo-warning-soft);
+    color: #b45309;
+    padding: 4px 8px;
+    border-radius: 9999px;
+    font-size: 11px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ── HeroUI Progress Bar ── */
+.heroui-progress-container {
+    width: 100%;
+    height: 5px;
+    background: var(--chequeo-surface-secondary);
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.heroui-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #7851A9 0%, #9333ea 100%);
+    border-radius: 9999px;
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Step Panes ── */
+.wizard-step-pane {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    animation: wizardFadeIn 0.2s ease-out;
+}
+
+.wizard-step-pane.is-active {
+    display: flex;
+}
+
+@keyframes wizardFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   REALISTIC PURPLE SAYAD CHEQUE SIMULATOR CARD (Authentic Iranian Cheque)
+   ══════════════════════════════════════════════════════════════════════════ */
+.sayad-cheque-real-card {
+    background: #fbf7ff;
+    background-image:
+        radial-gradient(circle at 50% 50%, rgba(120, 81, 169, 0.05) 0%, transparent 60%),
+        repeating-linear-gradient(45deg, rgba(147, 51, 234, 0.02) 0, rgba(147, 51, 234, 0.02) 1px, transparent 0, transparent 8px);
+    border-radius: var(--chequeo-radius-xl);
+    padding: 12px 12px 10px 14px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--chequeo-shadow);
+    color: #3b0764;
+    user-select: none;
+}
+
+/* Watermark Calligraphy (نمونه) */
+.cheque-watermark-sample {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-12deg);
+    font-size: 54px;
+    font-weight: 900;
+    color: rgba(120, 81, 169, 0.07);
+    letter-spacing: 12px;
+    pointer-events: none;
+    z-index: 0;
+    white-space: nowrap;
+}
+
+/* Center Guilloche Medallion */
+.cheque-central-rosette {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(120, 81, 169, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.cheque-inner-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Cheque Top Section */
+.real-cheque-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 6px;
+}
+
+.real-cheque-series {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cheque-qr-box {
+    width: 28px;
+    height: 28px;
+    background: #ffffff;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.cheque-series-codes {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.series-num {
+    font-size: 9px;
+    font-weight: 700;
+    color: #6b21a8;
+}
+
+.sayad-id-16 {
+    font-size: 10px;
+    font-weight: 900;
+    color: #4c1d95;
+    letter-spacing: 0.5px;
+    direction: ltr;
+}
+
+.real-cheque-header-date {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.cheque-sayad-emblem {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.sayad-logo-pill {
+    background: #581c87;
+    color: #ffffff;
+    font-size: 9px;
+    font-weight: 400;
+    padding: 2px 6px;
+    border-radius: 9999px;
+}
+
+.date-boxes-wrap {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.date-box-lbl {
+    font-size: 9px;
+    color: #6b21a8;
+    font-weight: 700;
+}
+
+.date-digit-cells {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    direction: ltr;
+}
+
+.date-cell {
+    width: 14px;
+    height: 16px;
+    background: #ffffff;
+    border-radius: 2px;
+    font-size: 9px;
+    font-weight: 800;
+    color: #3b0764;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.date-slash {
+    font-size: 9px;
+    color: #7e22ce;
+    font-weight: 800;
+}
+
+.date-words-line {
+    font-size: 8px;
+    color: #6b21a8;
+    display: flex;
+    gap: 2px;
+}
+
+.dw-val {
+    font-weight: 700;
+    color: #3b0764;
+}
+
+/* Cheque Body Handwriting Lines */
+.real-cheque-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.45);
+    padding: 6px 8px;
+    border-radius: var(--chequeo-radius-md);
+}
+
+.cheque-handwriting-line {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    font-size: 9.5px;
+    line-height: 1.4;
+    flex-wrap: wrap;
+}
+
+.chq-text-lbl {
+    color: #6b21a8;
+    white-space: nowrap;
+}
+
+.chq-text-val {
+    font-weight: 800;
+    color: #2e1065;
+}
+
+.chq-currency-unit {
+    font-weight: 800;
+    color: #581c87;
+}
+
+/* Amount in Rials Digit Cells */
+.cheque-amount-rial-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 2px;
+    padding-top: 4px;
+}
+
+.rial-boxes-lbl {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: #581c87;
+    white-space: nowrap;
+}
+
+.rial-digit-cells {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    direction: ltr;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.rial-digit-cell {
+    width: 15px;
+    height: 18px;
+    background: #ffffff;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 900;
+    color: #3b0764;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.rial-suffix-lbl {
+    font-size: 8px;
+    font-weight: 800;
+    color: #4c1d95;
+}
+
+/* Cheque Bottom Legal & Signature */
+.real-cheque-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 6px;
+    padding-top: 2px;
+}
+
+.real-cheque-legal-clause {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 8px;
+    color: #7e22ce;
+    font-weight: 600;
+    flex: 1;
+}
+
+.real-cheque-signature-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 8px;
+    color: #6b21a8;
+    gap: 4px;
+}
+
+.sig-title {
+    font-weight: 700;
+}
+
+.sig-iban {
+    direction: ltr;
+    font-size: 7.5px;
+    color: #9333ea;
+}
+
+/* ── Cheque Carousel Tabs ── */
+.cheque-selector-tabs {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cheque-tab-pill {
+    flex: 1;
+    padding: 6px 4px;
+    background: var(--chequeo-surface-secondary);
+    color: var(--chequeo-muted);
+    border-radius: var(--chequeo-radius-lg);
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: var(--chequeo-shadow);
+    transition: all 0.15s ease;
+}
+
+.cheque-tab-pill.is-active {
+    background: var(--chequeo-accent);
+    color: #ffffff;
+}
+
+/* ── Financial Breakdown Card ── */
+.breakdown-card {
+    background: var(--chequeo-accent-foreground);
+    border-radius: 22px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: var(--chequeo-shadow);
+}
+
+.breakdown-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--chequeo-foreground);
+}
+
+.breakdown-label {
+    color: var(--chequeo-muted);
+    font-size: 11px;
+}
+
+.breakdown-value {
+    font-size: 11px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.breakdown-row.highlight {
+    font-size: 13px;
+    padding-top: 6px;
+}
+
+.breakdown-highlight-val {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--chequeo-accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ── Anti-Corruption Box ── */
+.anti-fraud-box {
+    background: #fffbeb;
+    border-radius: var(--chequeo-radius-xl);
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: var(--chequeo-shadow);
+}
+
+.anti-fraud-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 800;
+    color: #92400e;
+}
+
+.anti-fraud-bullets {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 11px;
+    color: #78350f;
+    line-height: 1.5;
+}
+
+/* ── HeroUI Checkbox ── */
+.heroui-checkbox-wrap {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.heroui-checkbox-box {
+    width: 18px;
+    height: 18px;
+    border-radius: 6px;
+    background: var(--chequeo-surface-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: all 0.15s ease;
+    color: transparent;
+    box-shadow: var(--chequeo-shadow);
+}
+
+.heroui-checkbox-wrap.is-checked .heroui-checkbox-box {
+    background: var(--chequeo-accent);
+    color: #ffffff;
+}
+
+.heroui-checkbox-label {
+    font-size: 11px;
+    color: var(--chequeo-foreground);
+    line-height: 1.5;
+    user-select: none;
+}
+
+/* ── HeroUI Form Inputs ── */
+.input-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-lbl {
+    font-size: 11px;
+    margin-bottom: 6px;
+    font-weight: 400;
+    color: var(--chequeo-foreground);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input-ctrl {
+    width: 100%;
+    height: 38px;
+    background-color: var(--chequeo-surface-secondary);
+    border-radius: var(--chequeo-field-radius);
+    padding: 0 14px;
+    font-size: 12px;
+    color: var(--chequeo-foreground);
+    box-shadow: var(--chequeo-shadow);
+    transition: background 0.15s ease;
+}
+
+.input-ctrl.is-disabled {
+    background: var(--chequeo-surface-tertiary);
+    color: var(--chequeo-muted);
+    cursor: not-allowed;
+    font-weight: 700;
+}
+
+.btn-demo-quick-upload {
+    background: #7851A9;
+    border: 0 !important;
+    color: #fff;
+    font-size: 10px;
+    cursor: pointer;
+    padding: 4px 12px;
+    margin-top: 4px;
+    border-radius: 50px;
+}
+
+.field-error-msg {
+    font-size: 11px;
+    color: var(--chequeo-danger);
+    display: none;
+}
+
+/* ── HeroUI Chips ── */
+.chq-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    border-radius: 9999px;
+    font-size: 10px;
+    line-height: 1.4;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.chq-chip--purple {
+    background: var(--chequeo-accent-soft);
+    color: var(--chequeo-accent);
+}
+
+.chq-chip--green {
+    background: var(--chequeo-success-soft);
+    color: #047857;
+}
+
+.chq-chip--amber {
+    background: var(--chequeo-warning-soft);
+    color: #b45309;
+}
+
+.chq-chip--red {
+    background: var(--chequeo-danger-soft);
+    color: #b91c1c;
+}
+
+/* ── Multi-Cheque Dynamic Slot Card ── */
+.cheque-upload-slot-card {
+    background: var(--chequeo-surface-secondary);
+    border-radius: var(--chequeo-radius-xl);
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: var(--chequeo-shadow);
+}
+
+.slot-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.slot-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--chequeo-foreground);
+}
+
+/* ── 16-Digit Sayad Input Group ── */
+.sayad-ctrl-group {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: var(--chequeo-field-radius);
+    padding: 8px;
+    gap: 6px;
+    box-shadow: var(--chequeo-shadow);
+}
+
+.sayad-ctrl-input {
+    flex: 1;
+    background: transparent;
+    padding: 0 10px;
+    font-size: 13.5px;
+    font-weight: 600;
+    direction: ltr;
+    letter-spacing: 1px;
+    color: #4c1d95;
+}
+
+.sayad-btn-inquire {
+    background: var(--chequeo-accent);
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: var(--chequeo-radius-md);
+    font-size: 11px;
+    font-weight: 400;
+    cursor: pointer;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: background 0.15s ease;
+}
+
+.sayad-btn-inquire:hover {
+    background: var(--chequeo-accent-hover);
+}
+
+/* ── File Upload Dropzone ── */
+.heroui-upload-box {
+    background: #ffffff;
+    border-radius: var(--chequeo-field-radius);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 6px;
+    cursor: pointer;
+    box-shadow: var(--chequeo-shadow);
+    transition: background 0.15s ease;
+}
+
+.heroui-upload-box:hover {
+    background: #faf5ff;
+}
+
+.upload-file-preview {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    border-radius: var(--chequeo-field-radius);
+    padding: 8px 12px;
+    gap: 10px;
+    box-shadow: var(--chequeo-shadow);
+}
+
+.preview-thumb-img {
+    width: 48px;
+    height: 34px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.upload-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #18181b;
+}
+
+.upload-sub {
+    font-size: 10px;
+    color: var(--chequeo-muted);
+}
+
+.preview-info-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.preview-file-name {
+    font-size: 11px;
+    font-weight: 700;
+    color: #18181b;
+}
+
+.slot-remove-file {
+    background: none;
+    color: #ef4444;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ── Signature Canvas Card ── */
+.signature-card {
+    background: var(--chequeo-surface-secondary);
+    border-radius: var(--chequeo-radius-xl);
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: var(--chequeo-shadow);
+}
+
+.signature-canvas-wrap {
+    background: #ffffff;
+    border-radius: var(--chequeo-field-radius);
+    overflow: hidden;
+    touch-action: none;
+    box-shadow: var(--chequeo-shadow);
+}
+
+#signature-canvas {
+    width: 100%;
+    height: 120px;
+    display: block;
+    cursor: crosshair;
+}
+
+.signature-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ── Contract Box ── */
+.contract-box {
+    background: #ffffff;
+    border-radius: var(--chequeo-field-radius);
+    padding: 12px;
+    font-size: 11px;
+    color: #475569;
+    line-height: 1.6;
+    max-height: 90px;
+    overflow-y: auto;
+    box-shadow: var(--chequeo-shadow);
+}
+
+/* ── Status Cards (Step 5) ── */
+.status-audit-card {
+    background: var(--chequeo-surface-secondary);
+    border-radius: 32px;
+    padding: 32px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: var(--chequeo-shadow);
+}
+
+.admin-note-bubble {
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 12px;
+    font-size: 11px;
+    line-height: 1.6;
+    color: var(--chequeo-foreground);
+    box-shadow: var(--chequeo-shadow);
+}
+
+.prepay-action-card {
+    background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+    border-radius: var(--chequeo-radius-xl);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    text-align: center;
+    box-shadow: var(--chequeo-shadow);
+}
+
+.prepay-amount-display {
+    font-size: 22px;
+    font-weight: 900;
+    color: #581c87;
+    letter-spacing: -0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ── HeroUI Buttons ── */
+.heroui-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 44px;
+    border-radius: 9999px;
+    padding: 0 20px;
+    font-size: 13px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none;
+    user-select: none;
+}
+
+.heroui-btn-primary {
+    background: linear-gradient(135deg, #7851A9 0%, #581c87 100%);
+    color: #ffffff;
+    box-shadow: var(--chequeo-shadow);
+}
+
+.heroui-btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.heroui-btn-secondary {
+    background: var(--chequeo-surface-secondary);
+    color: var(--chequeo-foreground);
+    box-shadow: var(--chequeo-shadow);
+    padding: 0 30px;
+}
+
+.heroui-btn-secondary:hover {
+    background: var(--chequeo-surface-tertiary);
+}
+
+.heroui-btn-full {
+    width: 100%;
+}
+
+.btn-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+/* ── Modal (Scrollable Rules) ── */
+.heroui-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 10000000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.heroui-modal-overlay.is-active {
+    display: flex;
+}
+
+.heroui-modal-content {
+    background: #ffffff;
+    border-radius: var(--chequeo-radius-3xl);
+    padding: 24px;
+    max-width: 380px;
+    width: 100%;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: var(--chequeo-shadow);
+    font-family: var(--chequeo-font);
+}
+
+.modal-scrollable-body {
+    overflow-y: auto;
+    font-size: 11px;
+    color: #334155;
+    line-height: 1.7;
+    padding-left: 4px;
+}
+
+#chq-breakdown-box{
+    background-color: var(--chequeo-surface-secondary);
+}
+
+/* ── Jalali DatePicker Theme & Precise Anchor ── */
+jdp-container,
+.jdp-container {
+    font-family: var(--chequeo-font) !important;
+    background: #ffffff !important;
+    border-radius: var(--chequeo-radius-2xl) !important;
+    box-shadow: var(--chequeo-shadow) !important;
+    border: 0 !important;
+    padding: 14px !important;
+    direction: rtl !important;
+    position: fixed !important;
+    z-index: 100000001 !important;
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+jdp-container *,
+.jdp-container * {
+    border: 0 !important;
+    outline: none !important;
+    font-family: var(--chequeo-font) !important;
+}
+
+jdp-container .jdp-header,
+.jdp-container .jdp-header {
+    background: transparent !important;
+    color: var(--chequeo-foreground) !important;
+    font-weight: 800 !important;
+    padding: 6px 0 !important;
+}
+
+jdp-container .jdp-years,
+jdp-container .jdp-months,
+.jdp-container .jdp-years,
+.jdp-container .jdp-months {
+    border-radius: var(--chequeo-radius-lg) !important;
+    font-weight: 700 !important;
+    color: #581c87 !important;
+    width: 45% !important;
+    display: flex !important;
+}
+
+jdp-container .jdp-days .jdp-day,
+.jdp-container .jdp-days .jdp-day {
+    transition: all 0.15s ease !important;
+    font-weight: 600 !important;
+    color: var(--chequeo-foreground) !important;
+}
+
+jdp-container .jdp-days .jdp-day:hover,
+.jdp-container .jdp-days .jdp-day:hover {
+    background: var(--chequeo-accent-soft) !important;
+    color: var(--chequeo-accent) !important;
+}
+
+jdp-container .jdp-days .jdp-day.selected,
+.jdp-container .jdp-days .jdp-day.selected {
+    background: var(--chequeo-accent) !important;
+    color: #ffffff !important;
+}
+
+jdp-container .jdp-days .jdp-day.today,
+.jdp-container .jdp-days .jdp-day.today {
+    color: var(--chequeo-accent) !important;
+    font-weight: 800 !important;
+}
+
+jdp-container .jdp-btn-today,
+.jdp-container .jdp-btn-today {
+    background: var(--chequeo-accent) !important;
+    color: #ffffff !important;
+    border-radius: 9999px !important;
+    padding: 4px 12px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+}
+
+jdp-container .jdp-btn-empty,
+jdp-container .jdp-btn-close,
+.jdp-container .jdp-btn-empty,
+.jdp-container .jdp-btn-close {
+    background: var(--chequeo-surface-secondary) !important;
+    color: var(--chequeo-muted) !important;
+    border-radius: 9999px !important;
+    padding: 4px 12px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+}
+
+.jdp-container .jdp-months .jdp-month,
+.jdp-container .jdp-years .jdp-year {
+    width: 100%;
+}
+
+jdp-container .jdp-icon-minus,
+jdp-container .jdp-icon-plus {
+    flex-shrink: 0;
+    background: var(--chequeo-surface-tertiary) !important;
+}
+
+/* ── Inline Toman Currency Icon ── */
+.chq-toman-icon {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    margin-right: 3px;
+    margin-left: 2px;
+    color: inherit;
+}
+
+.chq-toman-icon svg {
+    width: 15px;
+    height: 13px;
+    fill: currentColor;
+    display: inline-block;
+}
+
+/* ── Clean Semantic Utility Classes (Zero Inline Styles) ── */
+.chequeo-wizard-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    background: transparent;
+}
+
+#chq-contract-text {
+    background: #f5f0f9;
+}
+
+.plan-select-ctrl {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.slot-list-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.brand-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-text-link {
+    background: #92400e;
+    color: var(--chequeo-accent-foreground);
+    font-weight: 400;
+    font-size: 10px;
+    cursor: pointer;
+    padding: 3px 10px;
+    border-radius: 50px;
+}
+
+.breakdown-row.highlight-green {
+    color: #047857;
+}
+
+.badge-pill-neutral {
+    font-size: 10px;
+    background: var(--chequeo-surface-tertiary);
+    color: #52525b;
+    padding: 3px 8px;
+    border-radius: 9999px;
+}
+
+.readonly-order-box {
+    width: 100%;
+    background: var(--chequeo-surface-secondary);
+    border-radius: var(--chequeo-field-radius);
+    padding: 10px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #52525b;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--chequeo-shadow);
+}
+
+.input-ltr-code {
+    direction: ltr !important;
+    text-align: right !important;
+    letter-spacing: 1px !important;
+    font-weight: 700 !important;
+}
+
+.identity-verify-notice {
+    background: var(--chequeo-accent-soft);
+    border-radius: var(--chequeo-field-radius);
+    padding: 10px 12px;
+    font-size: 11px;
+    color: #581c87;
+    line-height: 1.5;
+}
+
+.step-sub-desc {
+    font-size: 11px;
+    color: var(--chequeo-muted);
+    line-height: 1.5;
+    margin-bottom: 2px;
+}
+
+.textarea-compact {
+    min-height: 60px;
+    padding: 8px 12px;
+    resize: none;
+}
+
+.contract-title {
+    color: #581c87;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.contract-highlight {
+    font-weight: 700;
+    color: #18181b;
+}
+
+.sig-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.sig-title-main {
+    font-size: 12px;
+    font-weight: 600;
+    color: #18181b;
+}
+
+.sig-sub-hint {
+    font-size: 11px;
+    color: var(--chequeo-muted);
+}
+
+.sig-clear-btn {
+    height: 28px;
+    background: var(--chequeo-surface-tertiary);
+    padding: 0 12px;
+    font-size: 11px;
+}
+
+.sig-hint-text {
+    font-size: 11px;
+    color: var(--chequeo-muted);
+}
+
+.status-center-wrap {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.status-icon-circle {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.status-icon-purple {
+    background: var(--chequeo-accent-soft);
+    color: var(--chequeo-accent);
+}
+
+.status-icon-green {
+    background: #059669;
+    color: #ecfdf5;
+}
+
+.status-icon-red {
+    background: #c54d4d;
+    color: #fef2f2;
+}
+
+.status-main-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+
+.status-main-title.title-purple {
+    color: #18181b;
+}
+
+.status-main-title.title-green {
+    color: #065f46;
+}
+
+.status-main-title.title-red {
+    color: #991b1b;
+}
+
+.status-main-desc {
+    font-size: 12px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.status-main-desc.desc-purple {
+    color: var(--chequeo-muted);
+}
+
+.status-foot-note {
+    font-size: 11px;
+    color: #a1a1aa;
+    text-align: center;
+    margin: 4px 0 0 0;
+}
+
+.prepay-label {
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.prepay-pay-btn {
+    text-decoration: none;
+}
+
+.demo-sim-bar {
+    margin-top: 10px;
+    background: var(--chequeo-accent-soft);
+    border-radius: 12px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+}
+
+.demo-sim-title {
+    color: var(--chequeo-accent);
+    font-weight: 700;
+}
+
+.demo-sim-buttons {
+    display: flex;
+    gap: 4px;
+}
+
+.chq-sim-btn {
+    background: #ffffff;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.chq-sim-btn.sim-purple {
+    color: var(--chequeo-accent);
+}
+
+.chq-sim-btn.sim-green {
+    color: #047857;
+}
+
+.chq-sim-btn.sim-red {
+    color: #b91c1c;
+}
+
+.modal-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal-main-title {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 800;
+    color: #18181b;
+}
+
+.modal-close-btn {
+    background: none;
+    color: var(--chequeo-muted);
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    margin: -8px 0 0 -8px;
+}
+
+.modal-footer-row {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-confirm-btn {
+    height: 38px;
+    padding: 0 20px;
+    font-size: 12px;
+    height: 38px;
+    padding: 0 20px;
+    font-size: 11px;
+    font-family: var(--chequeo-font);
+    border: none;
+}
