@@ -119,8 +119,8 @@
         const demoConfig = {
             orderId: 1258,
             orderTotal: 48500000,
-            companyName: 'شرکت پاپ اسنوی (سهامی خاص)',
-            receiver: 'شرکت پاپ اسنوی (سهامی خاص)',
+            companyName: 'شرکت پاپ اسنوی',
+            receiver: 'شرکت پاپ اسنوی',
             sayadId: '14008923410',
             plans: [
                 {

@@ -555,7 +555,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 12px;
+    font-size: 11px;
     color: var(--chequeo-foreground);
 }
 
@@ -1052,7 +1052,7 @@
     padding-left: 4px;
 }
 
-#chq-breakdown-box{
+#chq-breakdown-box {
     background-color: var(--chequeo-surface-secondary);
 }
 
@@ -1149,8 +1149,8 @@ jdp-container .jdp-btn-close,
     cursor: pointer !important;
 }
 
-.jdp-container .jdp-months .jdp-month,
-.jdp-container .jdp-years .jdp-year {
+jdp-container .jdp-months .jdp-month,
+jdp-container .jdp-years .jdp-year {
     width: 100%;
 }
 
@@ -1472,4 +1472,21 @@ jdp-container .jdp-icon-plus {
     font-size: 11px;
     font-family: var(--chequeo-font);
     border: none;
+}
+
+/*responsive*/
+
+@media(max-width:767px) {
+    .anti-fraud-header {
+        display: contents;
+    }
+
+    .btn-text-link {
+        order: 3;
+        padding: 7px 10px;
+    }
+
+    .heroui-btn {
+        font-size: 12px;
+    }
 }
